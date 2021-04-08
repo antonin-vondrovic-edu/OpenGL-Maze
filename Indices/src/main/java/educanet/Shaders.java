@@ -5,18 +5,21 @@ import org.lwjgl.opengl.GL33;
 public class Shaders {
     private static final String vertexShaderSource = "#version 330 core\n" +
             "layout (location = 0) in vec3 aPos;\n" +
+            "layout (location = 1) in vec4 vertexColors;\n" +
+            "out vec4 fuckingColors;\n" +
             "void main()\n" +
             "{\n" +
-            " gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n" +
+            "gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n" +
+            "fuckingColors = vertexColors;\n" +
             "}";
 
     private static final String fragmentShaderSource = "#version 330 core\n" +
             "out vec4 FragColor;\n" +
+            "in vec4 fuckingColors;\n"+
             "void main()\n" +
             "{\n" +
-            "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n" +
+            "FragColor = fuckingColors;\n" +
             "}\n";
-
     public static int vertexShaderId;
     public static int fragmentShaderId;
     public static int shaderProgramId;

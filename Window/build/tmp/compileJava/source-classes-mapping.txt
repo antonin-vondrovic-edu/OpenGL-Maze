@@ -1,2 +1,0 @@
-cz/educanet/Main.java
- cz.educanet.Main
